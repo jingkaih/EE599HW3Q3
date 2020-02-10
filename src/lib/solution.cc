@@ -3,10 +3,10 @@
 
 ListNode *SinglyLinkedList::head_ = nullptr;
 ListNode *SinglyLinkedList::prev = nullptr;
-std::set<ListNode *> SinglyLinkedList::str = {};
+//std::set<ListNode *> SinglyLinkedList::str = {};
 
 
-void SinglyLinkedList::create(int i)
+void SinglyLinkedList::create(int i)//Time complexity is O(1)
 {
     
     ListNode *thisone = new ListNode(i);
@@ -22,10 +22,10 @@ void SinglyLinkedList::create(int i)
         prev = thisone;
     }
 
-    str.insert(thisone);
+    //str.insert(thisone);
 }
 
-void SinglyLinkedList::link_back()
+void SinglyLinkedList::link_back()//Time complexity is O(n)
 {
   ListNode *p = head_;
   int i = lbi;
@@ -37,14 +37,14 @@ void SinglyLinkedList::link_back()
   prev->next = p;
 }
 
-void SinglyLinkedList::push_back(int i)
+void SinglyLinkedList::push_back(int i)//Time complexity is O(n)
 {
   create(i);
   if(lbi > 0 && lbi <= vec_len)
   link_back();
 }
 
-bool SinglyLinkedList::empty()
+bool SinglyLinkedList::empty()//Time complexity is O(1)
 {
   if(head_ == NULL)
   return true;
@@ -52,7 +52,7 @@ bool SinglyLinkedList::empty()
   return false;
 }
 
-int SinglyLinkedList::size()
+int SinglyLinkedList::size()//Time complexity is O(n)
 {
   int s = 1;
   ListNode *temp = head_;
@@ -62,27 +62,27 @@ int SinglyLinkedList::size()
     s++;
   }
   return s;
-  //return str.size();   ---this line of code is all what we need when the list is an acyclic linked list since it uses a set to root out any duplicate pointer.
+  //return str.size();   ---this line of code is all what we need when the list is an acyclic linked list since it would use a set to root out any duplicate pointer.
 }
 
-void SinglyLinkedList::push_front(int i)
+void SinglyLinkedList::push_front(int i)//Time complexity is O(1)
 {
   ListNode *temp = head_;
   head_ = new ListNode(i);
   head_->next = temp;
-  str.insert(head_);
+  //str.insert(head_);
 }
 
-void SinglyLinkedList::insert_after(ListNode* p, int i)
+void SinglyLinkedList::insert_after(ListNode* p, int i)//Time complexity is O(1)
 {
   ListNode *ins = new ListNode(i);
   ListNode *temp = p->next;
   p->next = ins;
   ins->next = temp;
-  str.insert(ins);
+  //str.insert(ins);
 }
 
-void SinglyLinkedList::erase(ListNode* p)//Cannot erase the last node!!!
+void SinglyLinkedList::erase(ListNode* p)//Cannot erase the last node!!! Time complexity is O(1)
 {
   ListNode *temp = p->next;
   p->val = temp->val;
@@ -92,12 +92,12 @@ void SinglyLinkedList::erase(ListNode* p)//Cannot erase the last node!!!
 //   (*it)->next = p->next;
 }
 
-void SinglyLinkedList::pop_front()
+void SinglyLinkedList::pop_front()//Time complexity is O(1)
 {
   head_ = head_->next;
 }
 
-void SinglyLinkedList::pop_back()
+void SinglyLinkedList::pop_back()//Time complexity is O(n)
 {
   ListNode *temp = head_;
   if(temp->next == nullptr)
@@ -110,7 +110,7 @@ void SinglyLinkedList::pop_back()
   temp->next = nullptr;
 }
 
-int SinglyLinkedList::back()
+int SinglyLinkedList::back()//Time complexity is O(n)
 {
   ListNode *temp = head_;
 
@@ -121,12 +121,12 @@ int SinglyLinkedList::back()
   return temp->val;
 }
 
-int SinglyLinkedList::front()
+int SinglyLinkedList::front()//Time complexity is O(1)
 {
   return head_->val;
 }
 
-ListNode *SinglyLinkedList::GetBackPointer()
+ListNode *SinglyLinkedList::GetBackPointer()//Time complexity is O(n)
 {
   ListNode *temp = head_;
 
@@ -137,7 +137,7 @@ ListNode *SinglyLinkedList::GetBackPointer()
   return temp;
 }
 
-ListNode *SinglyLinkedList::GetIthPointer(int i)//i > 0
+ListNode *SinglyLinkedList::GetIthPointer(int i)//i > 0 /Time complexity is O(n)
 {
   ListNode *temp = head_;
 
@@ -149,7 +149,7 @@ ListNode *SinglyLinkedList::GetIthPointer(int i)//i > 0
   return temp;
 }
 
-void SinglyLinkedList::print()
+void SinglyLinkedList::print()//Time complexity is O(n)
 {
   ListNode *temp = head_;
   std::cout <<'{';

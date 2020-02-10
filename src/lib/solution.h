@@ -21,7 +21,7 @@ class SinglyLinkedList
     static ListNode *head_;// = nullptr;
     int lbi;
     int vec_len;
-    static std::set<ListNode *> str;// to store a set of pointers that point to every node, only used in counting the size of acyclic linked list.
+    // static std::set<ListNode *> str;// to store a set of pointers that point to every node, only used in counting the size of acyclic linked list.
     // Creates a linked list out of vector “inputs” and connects the last
     // item’s next to i(th) item in the list.
     // - If i is -1(I personally changed to 'less than or equals to 0'), the last item’s next is nullptr.

@@ -24,3 +24,9 @@ Otherwise, we will get a cyclic one.
 The erase() method cannot delete the last node. Instead using pop_back() if you want to do so.
 
 GetIthPointer must get an i larger than 0.
+
+>>Time Complexity
+
+Time complexities for each member function were put at comments in solution.cc
+
+Time complexity for constructor is O(n).
